@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface DummyService {
     @GET("api/users")
-    suspend fun getDummyListUserList(
+    suspend fun getDummyListUsers(
         @Query("page") page: Int,
     ): ResponseGetDummyUserListDto
 }
