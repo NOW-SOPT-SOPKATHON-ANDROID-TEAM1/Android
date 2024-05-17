@@ -7,10 +7,10 @@ class SoptApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        setDarkMode()
+        disableDarkMode()
     }
 
-    private fun setDarkMode() {
+    private fun disableDarkMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
