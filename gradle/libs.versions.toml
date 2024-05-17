@@ -1,0 +1,80 @@
+[versions]
+# Kotlin
+agp = "8.3.2"
+kotlin = "1.9.20"
+kotlinSerializationJson = "1.5.1"
+kotlinxCoroutines = "1.7.3"
+
+# AndroidX
+appcompat = "1.6.1"
+coreKtx = "1.13.1"
+activity = "1.9.0"
+constraintlayout = "2.1.4"
+fragment = "1.7.0"
+navigation = "2.7.7"
+
+# Test
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+
+# Google
+material = "1.12.0"
+
+# Third Party
+ktlint = "12.0.3"
+coil = "2.4.0"
+okhttp = "4.11.0"
+retrofit = "2.9.0"
+retrofitKotlinSerializationConverter = "1.0.0"
+
+[libraries]
+# Kotlin
+kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerializationJson" }
+kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+
+# AdnroidX
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+
+# Test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+# Google
+google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Third Party
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlin-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinSerializationConverter" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+
+[bundles]
+androidx = [
+    "androidx-core-ktx",
+    "androidx-appcompat",
+    "androidx-constraintlayout",
+    "androidx-activity",
+    "androidx-fragment",
+    "androidx-navigation-fragment",
+    "androidx-navigation-ui"
+]
+okhttp = ["okhttp", "okhttp-logging-interceptor"]
+retrofit = ["retrofit", "retrofit-kotlin-serialization-converter"]
