@@ -53,6 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="59dp"
         android:layout_marginHorizontal="14dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="#83B2E9"
+        tools:text="안녕하세요"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
