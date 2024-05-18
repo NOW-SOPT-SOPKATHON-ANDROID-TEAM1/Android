@@ -1,25 +1,33 @@
 package org.sopt.android.presentation.ui.onboarding
 
-import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
-import org.sopt.android.databinding.FragmentOnboadingBinding
+import coil.load
+import org.sopt.android.databinding.FragmentOnboardingBinding
 import org.sopt.android.util.base.BindingFragment
 
+class OnboardingFragment :
+    BindingFragment<FragmentOnboardingBinding>({ FragmentOnboardingBinding.inflate(it) }) {
+    private val viewModel by activityViewModels<OnboardingViewModel>()
 
-class OnboardingFragment(
-    val content: String,
-    val position: Int
-) : BindingFragment<FragmentOnboadingBinding>({FragmentOnboadingBinding.inflate(it)}) {
-    private val sharedViewModel by activityViewModels<OnboardingViewModel>()
+    private val imageLauncher =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
+            viewModel.setImageUri(imageUri ?: Uri.EMPTY)
+            binding.ivOnboardingImage.load(imageUri)
+        }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding) {
-            tvTemporaryText.text = position.toString() +": "+content
+        addListeners()
+    }
+
+    private fun addListeners() {
+        binding.ivOnboardingImage.setOnClickListener {
+            imageLauncher.launch("image/*")
         }
     }
 }

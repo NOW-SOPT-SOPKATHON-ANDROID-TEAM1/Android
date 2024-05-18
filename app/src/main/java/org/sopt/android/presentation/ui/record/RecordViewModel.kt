@@ -1,6 +1,5 @@
-package org.sopt.android.presentation.ui.onboarding
+package org.sopt.android.presentation.ui.record
 
-import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,18 +11,11 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.sopt.android.data.repository.WeLikedItRepository
 import org.sopt.android.util.view.UiState
 
-class OnboardingViewModel(
+class RecordViewModel(
     private val weLikedItRepository: WeLikedItRepository
-) : ViewModel(){
+) : ViewModel() {
     private val _postRememberState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
     val postRememberState get() = _postRememberState.asStateFlow()
-
-    private var _imageUri = Uri.EMPTY
-    val imageUri get() = _imageUri
-
-    fun setImageUri(uri: Uri) {
-        _imageUri = uri
-    }
 
     fun postRemember(image: MultipartBody.Part, caption: String) {
         viewModelScope.launch {
