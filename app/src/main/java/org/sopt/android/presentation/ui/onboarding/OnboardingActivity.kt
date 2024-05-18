@@ -3,9 +3,11 @@ package org.sopt.android.presentation.ui.onboarding
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.get
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.sopt.android.R
@@ -13,21 +15,26 @@ import org.sopt.android.databinding.ActivityOnboardingBinding
 import org.sopt.android.util.base.BindingActivity
 
 class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ ActivityOnboardingBinding.inflate(it) }) {
+    private val viewModel by viewModels<OnboardingViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setVPAdapter()
-        setTapLayout()
+        initVPAdapter()
+        initTapLayout()
+        initView()
+
     }
 
-    private fun setVPAdapter() {
+    private fun initVPAdapter() {
         with(binding) {
-            vpOnboarding.adapter = OnboardingVPAdapter(strings = arrayListOf(
-                "fragment1","fragment2","fragment3","fragment4","fragment5"))
+            vpOnboarding.adapter = FragmentVPAdapter(
+                arrayListOf("fragment1","fragment2","fragment3","fragment4","fragment5"),
+                this@OnboardingActivity)
         }
     }
 
-    private fun setTapLayout() {
+    private fun initTapLayout() {
         with(binding) {
             TabLayoutMediator(layoutTabIndicator, vpOnboarding) { tab, position ->
                 tab.customView = layoutInflater.inflate(R.layout.custom_tab, null)
@@ -47,8 +54,25 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
                 }
             })
         }
+    }
+
+    private fun initView() {
+        with(binding) {
+            btnNext.text = "Next"
+            btnNext.setOnClickListener {
+                val currentItem = vpOnboarding.currentItem
+                val itemCount = vpOnboarding.adapter?.itemCount!!
+                if (currentItem < itemCount - 1) {
+                    vpOnboarding.currentItem = currentItem + 1
+
+                    if (currentItem == itemCount - 2) {
+                        btnNext.text = "Finish"
+                    }
+                }
 
 
+            }
+        }
     }
 
 }
