@@ -17,12 +17,18 @@ import org.sopt.android.util.base.BindingFragment
 class OnboardingFragment : Fragment() {
     private val viewModel by activityViewModels<OnboardingViewModel>()
     private var _binding: FragmentOnboardingBinding? = null
+    private var index: Int = 0
     private val binding get() = _binding!!
 
     private var imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
-            viewModel.setImageUri(imageUri ?: Uri.EMPTY)
+            //viewModel.setImageUri(imageUri ?: Uri.EMPTY)
+            viewModel.setImageUriByIndex(index, imageUri?:Uri.EMPTY)
             binding.ivOnboardingImage.load(imageUri)
         }
+
+    fun setIndex(index: Int) {
+        this.index = index
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +38,7 @@ class OnboardingFragment : Fragment() {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +51,8 @@ class OnboardingFragment : Fragment() {
         _binding = null
     }
 
+
+
     private fun addListeners() {
         binding.ivOnboardingImage.setOnClickListener {
             imageLauncher.launch("image/*")
@@ -51,6 +60,7 @@ class OnboardingFragment : Fragment() {
 
         binding.etOnboarding.addTextChangedListener(
             onTextChanged = { text, _, _, _ ->
+                viewModel.setContentByIndex(index = index, content = text.toString())
             }
         )
     }

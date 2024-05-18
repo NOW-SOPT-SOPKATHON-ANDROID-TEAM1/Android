@@ -22,8 +22,27 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
 
     private fun initVPAdapter() {
         with(binding) {
+            val fragment1 = OnboardingFragment()
+            val fragment2 = OnboardingFragment()
+            val fragment3 = OnboardingFragment()
+            val fragment4 = OnboardingFragment()
+            val fragment5 = OnboardingFragment()
+
+            fragment1.setIndex(0)
+            fragment2.setIndex(1)
+            fragment3.setIndex(2)
+            fragment4.setIndex(3)
+            fragment5.setIndex(4)
+
             vpOnboarding.adapter = FragmentVPAdapter(
-                this@OnboardingActivity)
+                fragmentList = listOf(
+                    fragment1,
+                            fragment2,
+                            fragment3,
+                            fragment4,
+                            fragment5,
+                ),
+                fragmentActivity = this@OnboardingActivity)
         }
     }
 
