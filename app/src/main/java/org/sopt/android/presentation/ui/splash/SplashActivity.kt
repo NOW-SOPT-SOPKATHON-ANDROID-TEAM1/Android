@@ -2,20 +2,44 @@ package org.sopt.android.presentation.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
-import org.sopt.android.R
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.sopt.android.databinding.ActivitySplashBinding
+import org.sopt.android.presentation.ui.home.HomeActivity
 import org.sopt.android.presentation.ui.login.LoginActivity
+import org.sopt.android.util.base.BindingActivity
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity :
+    BindingActivity<ActivitySplashBinding>({ ActivitySplashBinding.inflate(it) }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }, 1000)
+        loadSplashScreen()
     }
+
+    private fun loadSplashScreen() {
+        lifecycleScope.launch {
+            delay(1000L)
+            setAutoLogin()
+            finish()
+        }
+    }
+
+    private fun setAutoLogin() {
+        if (applicationContext.getSharedPreferences("name", MODE_PRIVATE)
+                .getBoolean("isLogin", false)
+        ) {
+            navigateToHome()
+        } else navigateToLogin()
+    }
+
+    private fun navigateToLogin() {
+        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+    }
+
+    private fun navigateToHome() {
+        startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+    }
+
 }
