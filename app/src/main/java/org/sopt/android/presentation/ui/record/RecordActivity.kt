@@ -27,6 +27,11 @@ class RecordActivity :
     private val imageLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
             this.imageUri = imageUri ?: Uri.EMPTY
+            if(this.imageUri != Uri.EMPTY) {
+                binding.tvTitle.text = ""
+            } else {
+                binding.tvTitle.text = "사진을 불러오세요"
+            }
             binding.ivRecordImage.load(imageUri)
         }
 
