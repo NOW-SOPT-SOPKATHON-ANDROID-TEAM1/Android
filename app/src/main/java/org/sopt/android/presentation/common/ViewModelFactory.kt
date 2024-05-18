@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.sopt.android.data.ServicePool
 import org.sopt.android.data.repository.WeLikedItRepository
+import org.sopt.android.presentation.ui.onboarding.OnboardingViewModel
 import org.sopt.android.presentation.ui.record.RecordViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {

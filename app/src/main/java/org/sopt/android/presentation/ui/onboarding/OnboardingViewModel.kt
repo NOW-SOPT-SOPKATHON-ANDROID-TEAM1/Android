@@ -9,12 +9,14 @@ import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.sopt.android.data.ServicePool
 import org.sopt.android.data.repository.WeLikedItRepository
 import org.sopt.android.util.view.UiState
 
 class OnboardingViewModel(
-    private val weLikedItRepository: WeLikedItRepository
-) : ViewModel(){
+) : ViewModel() {
+    private val weLikedItRepository: WeLikedItRepository = WeLikedItRepository(ServicePool.weLikedItService)
+
     private val _postRememberState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
     val postRememberState get() = _postRememberState.asStateFlow()
 

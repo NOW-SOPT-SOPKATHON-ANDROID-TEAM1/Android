@@ -23,7 +23,6 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
     private fun initVPAdapter() {
         with(binding) {
             vpOnboarding.adapter = FragmentVPAdapter(
-                arrayListOf("fragment1","fragment2","fragment3","fragment4","fragment5"),
                 this@OnboardingActivity)
         }
     }
