@@ -30,6 +30,8 @@ class OnboardingFragment : Fragment() {
         this.index = index
     }
 
+    fun getIndex(): Int = this.index
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -20,19 +20,12 @@ class OnboardingViewModel: ViewModel() {
     private val _postRememberState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
     val postRememberState get() = _postRememberState.asStateFlow()
 
-    /*private var _imageUri = Uri.EMPTY
-    val imageUri get() = _imageUri
-
-    fun setImageUri(uri: Uri) {
-        _imageUri = uri
-    }*/
-
     private var _imageUriList = mutableListOf<Uri>(
         Uri.EMPTY,Uri.EMPTY,Uri.EMPTY,Uri.EMPTY,Uri.EMPTY,
     )
     fun getImageUriByIndex(index: Int): Uri = _imageUriList[index]
     fun setImageUriByIndex(index: Int, uri: Uri) {
-        _imageUriList.set(index, uri)
+        _imageUriList[index] = uri
         Log.d("Onboarding", _imageUriList.toString())
     }
 

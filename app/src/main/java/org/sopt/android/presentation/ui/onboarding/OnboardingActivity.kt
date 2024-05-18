@@ -1,8 +1,10 @@
 package org.sopt.android.presentation.ui.onboarding
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.sopt.android.R
@@ -34,15 +36,29 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
             fragment4.setIndex(3)
             fragment5.setIndex(4)
 
-            vpOnboarding.adapter = FragmentVPAdapter(
+            vpOnboarding.adapter =  FragmentVPAdapter(
                 fragmentList = listOf(
                     fragment1,
-                            fragment2,
-                            fragment3,
-                            fragment4,
-                            fragment5,
+                    fragment2,
+                    fragment3,
+                    fragment4,
+                    fragment5,
                 ),
                 fragmentActivity = this@OnboardingActivity)
+
+            vpOnboarding.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    when(position) {
+                        0 -> binding.btnNext.text = "다른 순간.. 기록할래?"
+                        1 -> binding.btnNext.text = "다른 순간 또.. 기록할래?"
+                        2 -> binding.btnNext.text = "하나 더.. 기록할래?"
+                        3 -> binding.btnNext.text = "마지막으로.. 기록할래?"
+                        4 -> binding.btnNext.text = "이제.. 시작해볼까?"
+                        else -> ""
+                    }
+                }
+            })
         }
     }
 
@@ -74,15 +90,11 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
 
     private fun initView() {
         with(binding) {
-            btnNext.text = getString(R.string.onboarding_btn_next)
             btnNext.setOnClickListener {
                 val currentItem = vpOnboarding.currentItem
                 val itemCount = vpOnboarding.adapter?.itemCount!!
                 if (currentItem < itemCount - 1) {
                     vpOnboarding.currentItem = currentItem + 1
-                    if (currentItem == itemCount - 2) {
-                        btnNext.text = getString(R.string.onboarding_btn_save)
-                    }
                 }
             }
 
@@ -90,9 +102,10 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
                 val currentItem = vpOnboarding.currentItem
                 if (currentItem > 0) {
                     vpOnboarding.currentItem = currentItem - 1
-                    btnNext.text = getString(R.string.onboarding_btn_next)
                 }
             }
+
+
         }
     }
 
