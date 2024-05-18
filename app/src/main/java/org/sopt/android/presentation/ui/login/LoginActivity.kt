@@ -3,7 +3,7 @@ package org.sopt.android.presentation.ui.login
 import android.content.Intent
 import android.os.Bundle
 import org.sopt.android.databinding.ActivityLoginBinding
-import org.sopt.android.presentation.ui.home.HomeActivity
+import org.sopt.android.presentation.ui.onboarding.OnboardingActivity
 import org.sopt.android.util.base.BindingActivity
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>({ ActivityLoginBinding.inflate(it) }) {
@@ -12,7 +12,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({ ActivityLoginBindi
 
         binding.btnStart.setOnClickListener {
             saveData()
-            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            startActivity(Intent(this@LoginActivity, OnboardingActivity::class.java))
         }
     }
 
