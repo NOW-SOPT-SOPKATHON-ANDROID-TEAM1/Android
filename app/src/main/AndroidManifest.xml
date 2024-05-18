@@ -34,7 +34,6 @@
             android:name=".presentation.ui.login.LoginActivity"
             android:windowSoftInputMode="adjustUnspecified"
             android:exported="false" />
-
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
             android:exported="true">
