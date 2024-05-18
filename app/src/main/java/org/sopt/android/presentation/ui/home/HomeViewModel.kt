@@ -20,8 +20,14 @@ class HomeViewModel(
             _getRememberState.value = UiState.Loading
             runCatching {
                 weLikedItRepository.getRemember()
-            }.onSuccess { responseRememberDto ->
-                _getRememberState.value = UiState.Success(responseRememberDto)
+            }.onSuccess { respose ->
+                _getRememberState.value = UiState.Success(
+                    respose.data ?: ResponseRememberDto(
+                        image = "",
+                        caption = "",
+                        date = ""
+                    )
+                )
             }.onFailure { throwable ->
                 _getRememberState.value = UiState.Error(throwable.message)
             }

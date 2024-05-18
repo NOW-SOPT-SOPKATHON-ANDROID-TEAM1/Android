@@ -10,7 +10,8 @@ import org.sopt.android.util.base.BindingDialogFragment
 
 class DialogRemindFragment(
     private val text: String,
-    private val image: String
+    private val image: String,
+    private val date: String
 ) : BindingDialogFragment<DialogRemindBinding>({DialogRemindBinding.inflate(it)}) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
