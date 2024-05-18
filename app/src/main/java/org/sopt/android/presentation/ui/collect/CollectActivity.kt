@@ -17,17 +17,14 @@ class CollectActivity :
     val mockRecordList = listOf(
         Collect(
             imageUrl = R.drawable.ic_launcher_foreground,
-            date = "이의경",
             title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
         ),
         Collect(
             imageUrl = R.drawable.ic_launcher_foreground,
-            date = "이의경",
             title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
         ),
         Collect(
             imageUrl = R.drawable.ic_launcher_foreground,
-            date = "이의경",
             title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
         ),
     )

@@ -4,6 +4,5 @@ import androidx.annotation.DrawableRes
 
 data class Collect(
     @DrawableRes val imageUrl: Int,
-    val date: String,
     val title: String,
 )

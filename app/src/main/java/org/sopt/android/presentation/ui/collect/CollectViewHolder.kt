@@ -8,7 +8,6 @@ class CollectViewHolder(private val binding: ItemCollectBinding) :
     fun onBind(collect: Collect) {
         binding.run {
             ivImage.setImageResource(collect.imageUrl)
-            tvDate.text = collect.date
             tvTitle.text = collect.title
         }
     }

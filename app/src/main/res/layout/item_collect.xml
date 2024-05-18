@@ -33,11 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
-        android:text="@{StringExtensionsKt.formatDate(news.publishedAt)}"
+        android:text="2024/05/19"
         app:layout_constraintBottom_toTopOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bg_iv_iamge"
-        tools:text="2023/12/25" />
+        app:layout_constraintTop_toBottomOf="@id/bg_iv_iamge" />
 
     <TextView
         android:id="@+id/tv_title"
