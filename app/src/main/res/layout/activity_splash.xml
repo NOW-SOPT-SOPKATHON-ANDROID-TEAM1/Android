@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.splash.SplashActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="스플래시 화면"
+        android:src="@drawable/ic_splash_logo"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
