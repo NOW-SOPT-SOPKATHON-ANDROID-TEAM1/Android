@@ -10,6 +10,7 @@
 1. 온보딩: 이름 입력 후 좋았던 추억이 담긴 사진 5개 업로드
 2. 기록하기: 좋았던 추억이 담긴 사진과 텍스트를 기록하여 업로드
 3. 리마인드 팝업: 부정적인 감정을 느낄 경우, 버튼을 클릭 시, 좋았던 추억이 담긴 사진과 텍스트를 담은 팝업창 보여주기
+4. 추억 보기: 업로드한 추억 목록 보기 
 
 ## 팀원 역할 분담
 | 배지현 <br> [@jihyunniiii](https://github.com/jihyunniiii) | 공세영 <br> [@0se0](https://github.com/0se0) | 이석준 <br>[@boiledEgg-s](https://github.com/boiledEgg-s) | 주효은 <br>[@hyoeunjoo](https://github.com/hyoeunjoo) |

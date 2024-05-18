@@ -34,7 +34,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
             navigateToRecord()
         }
 
-        binding.tvHomeName.text = getUserName() + "님,"
+        binding.tvHomeName.text = getUserName() + "아,"
     }
 
     private fun initColletBtn() {
