@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.ui.record.RecordActivity">
+
+
+
+    <ImageView
+        android:id="@+id/iv_record_arrow_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="사진을 불러오세요"
+        android:textAlignment="center"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/iv_record_arrow_left"
+        />
+
+    <ImageView
+        android:id="@+id/iv_record_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="46dp"
+        android:background="@drawable/shape_border_radius_16"
+        android:backgroundTint="#F7F0EA"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_edit_text_background"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <EditText
+        android:id="@+id/et_record"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginTop="44dp"
+        android:background="#F7F0E4"
+        android:gravity="top|left"
+        android:hint="좋았던 순간 기록하기.."
+        android:lineHeight="20dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:textColor="#A59383"
+        android:textColorHint="#AEAEAE"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_record_image" />
+
+    <Button
+        android:id="@+id/btn_record_save"
+        style="@style/Theme.SOPKATHONANDROIDTEAM1.Button"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginBottom="59dp"
+        android:backgroundTint="#83B2E9"
+        android:text="기록 완료"
+        android:fontFamily="@font/pretendard_medium"
+        android:textColor="#FFFFFF"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

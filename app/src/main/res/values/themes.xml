@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SOPKATHONANDROIDTEAM1" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:windowBackground">#FFFBF8</item>
+        <item name="tabStyle">@style/CustomTabLayout2</item>
+    </style>
+
+    <style name="Theme.SOPKATHONANDROIDTEAM1" parent="Base.Theme.SOPKATHONANDROIDTEAM1" />
+
+    <!-- Splash -->
+    <style name="Theme.SOPKATHONANDROIDTEAM1.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+        <item name="postSplashScreenTheme">@style/Theme.SOPKATHONANDROIDTEAM1</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- Custom style for TabLayout -->
+    <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabSelectedTextColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+
+    <style name="CustomTabLayout2" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabPaddingTop">0dp</item>
+        <item name="tabPaddingBottom">0dp</item>
+        <item name="tabSelectedTextColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+
+    <style name="Theme.SOPKATHONANDROIDTEAM1.Button" parent="Widget.Material3.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+</resources>
