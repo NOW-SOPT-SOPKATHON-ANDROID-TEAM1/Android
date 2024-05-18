@@ -5,6 +5,10 @@
 ## 주요기능
 
 ## 팀원 역할 분담
+| 배지현 <br> [@jihyunniiii](https://github.com/jihyunniiii) | 공세영 <br> [@0se0](https://github.com/0se0) | 이석준 <br>[@boiledEgg-s](https://github.com/boiledEgg-s) | 주효은 <br>[@hyoeunjoo](https://github.com/hyoeunjoo) |
+|:---:| :---: | :---: | :---: |
+| <img width="250" src="https://avatars.githubusercontent.com/u/103172971?s=400&u=fcff876613b9ee351c2ec52278f9415f34808b57&v=4"/> |<img width="250" src="https://avatars.githubusercontent.com/u/121383083?v=4"/>|<img width="250" src="https://avatars.githubusercontent.com/u/101652649?v=4"/>|<img width="250" src="https://avatars.githubusercontent.com/u/137873124?v=4"/>|
+|  |  |  |  |
 
 ## 📷 ScreenShot
 
