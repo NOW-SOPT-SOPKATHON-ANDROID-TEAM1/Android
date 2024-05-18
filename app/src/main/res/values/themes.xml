@@ -3,7 +3,7 @@
     <style name="Base.Theme.SOPKATHONANDROIDTEAM1" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">#FFFBF8</item>
         <item name="tabStyle">@style/CustomTabLayout2</item>
     </style>
 
