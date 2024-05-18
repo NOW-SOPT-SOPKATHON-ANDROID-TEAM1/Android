@@ -4,12 +4,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.sopt.android.data.ServicePool
 import org.sopt.android.data.repository.DummyRepository
+import org.sopt.android.data.repository.WeLikedItRepository
 import org.sopt.android.presentation.ui.dummy.DummyViewModel
+import org.sopt.android.presentation.ui.record.RecordViewModel
 
 class ViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DummyViewModel::class.java)) {
             return DummyViewModel(DummyRepository(ServicePool.dummyService)) as T
+        } else if (modelClass.isAssignableFrom(RecordViewModel::class.java)) {
+            return RecordViewModel(WeLikedItRepository(ServicePool.weLikedItService)) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }
