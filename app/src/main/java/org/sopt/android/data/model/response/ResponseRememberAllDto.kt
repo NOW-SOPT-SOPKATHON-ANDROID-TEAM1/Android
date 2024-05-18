@@ -4,11 +4,12 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-class ResponseRememberDto(
-    @SerialName("imageUrl")
-    val image: String,
+class ResponseRememberAllDto(
     @SerialName("caption")
     val caption: String,
+    @SerialName("imageUrl")
+    val imageUrl: String,
     @SerialName("createdAt")
     val date: String
 )
+

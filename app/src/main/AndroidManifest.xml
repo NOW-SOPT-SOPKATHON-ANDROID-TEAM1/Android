@@ -52,6 +52,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
+            android:theme="@style/Theme.SOPKATHONANDROIDTEAM1.Splash"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

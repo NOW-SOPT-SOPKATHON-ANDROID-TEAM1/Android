@@ -1,4 +1,3 @@
-package org.sopt.android.presentation.ui.collect
 
 import androidx.annotation.DrawableRes
 

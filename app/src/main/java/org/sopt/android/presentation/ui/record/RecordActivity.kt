@@ -3,6 +3,7 @@ package org.sopt.android.presentation.ui.record
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -72,6 +73,7 @@ class RecordActivity :
             .onEach { uiState ->
                 when (uiState) {
                     is UiState.Success -> navigateToHome()
+                    is UiState.Error -> Log.e("ㅋㅋ", uiState.message.toString())
                     else -> Unit
                 }
             }.launchIn(lifecycleScope)

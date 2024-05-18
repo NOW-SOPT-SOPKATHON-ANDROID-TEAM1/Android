@@ -1,51 +1,58 @@
 package org.sopt.android.presentation.ui.collect
 
-import androidx.activity.enableEdgeToEdge
-import org.sopt.android.databinding.ActivityCollectBinding
-
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import org.sopt.android.R
-import org.sopt.android.databinding.ActivityHomeBinding
+import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import org.sopt.android.data.model.response.ResponseRememberAllDto
+import org.sopt.android.databinding.ActivityCollectBinding
+import org.sopt.android.presentation.common.ViewModelFactory
+import org.sopt.android.presentation.ui.remind.DialogRemindFragment
 import org.sopt.android.util.base.BindingActivity
+import org.sopt.android.util.view.UiState
 
 
 class CollectActivity :
     BindingActivity<ActivityCollectBinding>({ ActivityCollectBinding.inflate(it) }) {
     private lateinit var collectAdapter: CollectAdapter
-
-    val mockRecordList = listOf(
-        Collect(
-            imageUrl = R.drawable.ic_launcher_foreground,
-            title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
-        ),
-        Collect(
-            imageUrl = R.drawable.ic_launcher_foreground,
-            title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
-        ),
-        Collect(
-            imageUrl = R.drawable.ic_launcher_foreground,
-            title = "다들 빨리 끝내고 뒤풀이 가고 싶지? ㅎㅎ 아직 반도 안왔어 ^&^",
-        ),
-    )
+    private val collectViewModel by viewModels<CollectViewModel> { ViewModelFactory() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityCollectBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         setupRecyclerView()
-
+        collectViewModel.getRememberAll()
+        collectData()
     }
 
-
     private fun setupRecyclerView() {
-        collectAdapter = CollectAdapter()
+        collectAdapter = CollectAdapter(
+            ::showDialogFragment
+        )
         binding.rvRecord.apply {
             adapter = collectAdapter
         }
-        collectAdapter.setRecordList(mockRecordList)
+    }
+
+    private fun collectData() {
+        collectViewModel.getRememberAllState.flowWithLifecycle(lifecycle)
+            .onEach { uiState ->
+                when (uiState) {
+                    is UiState.Success -> collectAdapter.setRecordList(uiState.data)
+                    else -> Unit
+                }
+            }.launchIn(lifecycleScope)
+    }
+
+    private fun showDialogFragment(responseRememberAllDto: ResponseRememberAllDto) {
+        val dialogRemindFragment = DialogRemindFragment(
+            text = responseRememberAllDto.caption,
+            image = responseRememberAllDto.imageUrl,
+            date = responseRememberAllDto.date
+        )
+        dialogRemindFragment.show(supportFragmentManager, "DialogFragment")
     }
 
 }
