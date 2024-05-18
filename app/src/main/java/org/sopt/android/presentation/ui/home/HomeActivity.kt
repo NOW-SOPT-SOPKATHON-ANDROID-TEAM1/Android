@@ -1,21 +1,29 @@
 package org.sopt.android.presentation.ui.home
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import org.sopt.android.R
+import android.util.Log
+import org.sopt.android.databinding.ActivityHomeBinding
+import org.sopt.android.presentation.ui.remind.DialogRemindFragment
+import org.sopt.android.util.base.BindingActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.inflate(it) }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        initLayout()
     }
+    private fun initLayout() {
+        binding.btn1.setOnClickListener {
+            showDialogFragment()
+        }
+        binding.tvHomeName.text = getUserName() + "님,"
+    }
+    private fun showDialogFragment(){
+        val dialogRemindFragment = DialogRemindFragment(
+            text = "Sample Text",
+            image = "Sample Image"
+        )
+        dialogRemindFragment.show(supportFragmentManager, "DialogFragment")
+    }
+
+    private fun getUserName() : String = applicationContext.getSharedPreferences("name", MODE_PRIVATE).getString("name", "").orEmpty()
 }

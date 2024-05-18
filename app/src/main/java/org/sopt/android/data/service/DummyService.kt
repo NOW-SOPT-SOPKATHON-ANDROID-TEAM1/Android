@@ -1,12 +1,18 @@
 package org.sopt.android.data.service
 
-import org.sopt.android.data.model.response.ResponseGetDummyUserListDto
-import retrofit2.http.GET
-import retrofit2.http.Query
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import org.sopt.android.util.base.BaseResponse
+import retrofit2.http.Multipart
+import retrofit2.http.POST
+import retrofit2.http.Part
 
 interface DummyService {
-    @GET("api/users")
-    suspend fun getDummyListUsers(
-        @Query("page") page: Int,
-    ): ResponseGetDummyUserListDto
+    @Multipart
+    @POST("/api/v1/test")
+    suspend fun postArticles(
+        @Part("category") category: RequestBody,
+        @Part file: MultipartBody.Part,
+        @Part("content") content: RequestBody,
+    ): Unit
 }
