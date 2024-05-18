@@ -3,7 +3,7 @@
     <style name="Base.Theme.SOPKATHONANDROIDTEAM1" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">#FFFBF8</item>
         <item name="tabStyle">@style/CustomTabLayout2</item>
     </style>
 
@@ -29,4 +29,13 @@
         <item name="tabTextColor">@color/colorPrimaryDark</item>
         <item name="tabIndicatorHeight">0dp</item>
     </style>
+
+    <style name="Theme.SOPKATHONANDROIDTEAM1.Button" parent="Widget.Material3.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
 </resources>
