@@ -67,6 +67,14 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
                     }
                 }
             }
+
+            btnBack.setOnClickListener{
+                val currentItem = vpOnboarding.currentItem
+                val itemCount = vpOnboarding.adapter?.itemCount!!
+                if (currentItem > 0) {
+                    vpOnboarding.currentItem = currentItem - 1
+                }
+            }
         }
     }
 
