@@ -2,10 +2,7 @@ package org.sopt.android.presentation.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.flowWithLifecycle
-import kotlinx.coroutines.flow.onEach
-import org.sopt.android.data.model.response.ResponseRememberDto
+import android.util.Log
 import org.sopt.android.databinding.ActivityHomeBinding
 import org.sopt.android.presentation.common.ViewModelFactory
 import org.sopt.android.presentation.ui.record.RecordActivity
@@ -18,6 +15,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initLayout()
+        initColletBtn()
     }
 
     private fun initLayout() {
@@ -30,6 +28,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         }
 
         binding.tvHomeName.text = getUserName() + "님,"
+    }
+
+    private fun initColletBtn() {
+        binding.tvBtn.setOnClickListener {
+            startActivity(Intent(this@HomeActivity, CollectActivity::class.java))
+        }
     }
 
     private fun collectData() {
