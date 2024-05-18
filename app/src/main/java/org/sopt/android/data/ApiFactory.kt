@@ -6,7 +6,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.sopt.android.BuildConfig
-import org.sopt.android.data.service.DummyService
+import org.sopt.android.data.service.WeLikedItService
 import retrofit2.Retrofit
 
 object ApiFactory {
@@ -29,5 +29,5 @@ object ApiFactory {
 }
 
 object ServicePool {
-    val dummyService = ApiFactory.create<DummyService>()
+    val weLikedItService = ApiFactory.create<WeLikedItService>()
 }
