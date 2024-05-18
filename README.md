@@ -59,3 +59,4 @@ https://github.com/NOW-SOPT-SOPKATHON-ANDROID-TEAM1/Android/assets/103172971/854
 ## 📷 After 사진 📷
 ![사진 2024  5  19  오전 7 46 #3](https://github.com/NOW-SOPT-SOPKATHON-ANDROID-TEAM1/Android/assets/103172971/b8882606-ed3a-469c-9bac-0ba4422d5ce3)
 
+![KakaoTalk_Photo_2024-05-19-08-21-09](https://github.com/NOW-SOPT-SOPKATHON-ANDROID-TEAM1/Android/assets/103172971/92acca3b-21f4-4eb6-a005-877aa0aaee79)
