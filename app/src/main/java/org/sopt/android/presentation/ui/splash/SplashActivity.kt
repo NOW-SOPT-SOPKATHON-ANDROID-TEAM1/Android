@@ -2,6 +2,7 @@ package org.sopt.android.presentation.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -13,8 +14,8 @@ import org.sopt.android.util.base.BindingActivity
 class SplashActivity :
     BindingActivity<ActivitySplashBinding>({ ActivitySplashBinding.inflate(it) }) {
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
-
         loadSplashScreen()
     }
 

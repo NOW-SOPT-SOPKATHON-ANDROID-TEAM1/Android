@@ -12,6 +12,7 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 fragment = "1.7.0"
 navigation = "2.7.7"
+splash = "1.0.0"
 
 # Test
 junit = "4.13.2"
@@ -41,6 +42,7 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -74,7 +76,8 @@ androidx = [
     "androidx-activity",
     "androidx-fragment",
     "androidx-navigation-fragment",
-    "androidx-navigation-ui"
+    "androidx-navigation-ui",
+    "androidx-core-splashscreen"
 ]
 okhttp = ["okhttp", "okhttp-logging-interceptor"]
 retrofit = ["retrofit", "retrofit-kotlin-serialization-converter"]

@@ -9,6 +9,18 @@
 
     <style name="Theme.SOPKATHONANDROIDTEAM1" parent="Base.Theme.SOPKATHONANDROIDTEAM1" />
 
+
+    <!-- Splash -->
+    <style name="Theme.SOPKATHONANDROIDTEAM1.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+        <item name="postSplashScreenTheme">@style/Theme.SOPKATHONANDROIDTEAM1</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!-- Custom style for TabLayout -->
     <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
         <item name="tabBackground">@android:color/transparent</item>
