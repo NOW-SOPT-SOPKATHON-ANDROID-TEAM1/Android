@@ -15,6 +15,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         binding.btn1.setOnClickListener {
             showDialogFragment()
         }
+        binding.tvHomeName.text = getUserName() + "님,"
     }
     private fun showDialogFragment(){
         val dialogRemindFragment = DialogRemindFragment(
@@ -24,8 +25,5 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         dialogRemindFragment.show(supportFragmentManager, "DialogFragment")
     }
 
-    private fun getData() {
-        val pref = applicationContext.getSharedPreferences("name", MODE_PRIVATE)
-        val name = pref.getString("name", "")
-    }
+    private fun getUserName() : String = applicationContext.getSharedPreferences("name", MODE_PRIVATE).getString("name", "").orEmpty()
 }

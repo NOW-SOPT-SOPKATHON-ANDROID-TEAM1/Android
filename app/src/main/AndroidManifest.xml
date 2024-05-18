@@ -36,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ui.dummy.DummyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
