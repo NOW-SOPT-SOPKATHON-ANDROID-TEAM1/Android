@@ -25,7 +25,7 @@ class OnboardingActivity :
         initVPAdapter()
         initTapLayout()
         initView()
-        collectData()
+        //collectData()
     }
 
     private fun initVPAdapter() {
@@ -128,6 +128,7 @@ class OnboardingActivity :
                             ).toFormData(),
                             caption = viewModel._contentList[i]
                         )
+                        navigateToHome()
                     }
                 }
             }
