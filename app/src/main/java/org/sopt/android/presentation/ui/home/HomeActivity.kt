@@ -1,21 +1,28 @@
 package org.sopt.android.presentation.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.sopt.android.R
+import org.sopt.android.databinding.ActivityHomeBinding
+import org.sopt.android.databinding.ActivityLoginBinding
+import org.sopt.android.util.base.BindingActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity :  BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.inflate(it)}) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        getData()
+    }
+
+    private fun getData() {
+        val pref = applicationContext.getSharedPreferences("name", MODE_PRIVATE)
+        val name = pref.getString("name", "")
+        Log.d("HomeActivity", "name = $name")
+        binding.tvHomeName.text = name
     }
 }
