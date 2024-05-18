@@ -11,5 +11,5 @@ class FragmentVPAdapter (
         return strings.size // 페이지의 개수
     }
 
-    override fun createFragment(position: Int): Fragment = OnboardingFragment(strings[position], position)
+    override fun createFragment(position: Int): Fragment = OnboardingFragment(position)
 }
