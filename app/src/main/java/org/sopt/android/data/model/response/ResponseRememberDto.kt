@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class ResponseRememberDto(
-    @SerialName("image")
+    @SerialName("imageUrl")
     val image: String,
     @SerialName("caption")
     val caption: String,
