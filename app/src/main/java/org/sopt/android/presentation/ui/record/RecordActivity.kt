@@ -38,6 +38,10 @@ class RecordActivity :
     }
 
     private fun addListeners() {
+        binding.ivRecordArrowLeft.setOnClickListener {
+            finish()
+        }
+
         binding.ivRecordImage.setOnClickListener {
             imageLauncher.launch("image/*")
         }
