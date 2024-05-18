@@ -4,7 +4,29 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="tabStyle">@style/CustomTabLayout2</item>
     </style>
 
     <style name="Theme.SOPKATHONANDROIDTEAM1" parent="Base.Theme.SOPKATHONANDROIDTEAM1" />
+
+    <!-- Custom style for TabLayout -->
+    <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabSelectedTextColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+
+    <style name="CustomTabLayout2" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabPaddingTop">0dp</item>
+        <item name="tabPaddingBottom">0dp</item>
+        <item name="tabSelectedTextColor">@color/colorAccent</item>
+        <item name="tabTextColor">@color/colorPrimaryDark</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
 </resources>
