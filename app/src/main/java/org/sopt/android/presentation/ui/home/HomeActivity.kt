@@ -1,8 +1,9 @@
 package org.sopt.android.presentation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import org.sopt.android.databinding.ActivityHomeBinding
+import org.sopt.android.presentation.ui.record.RecordActivity
 import org.sopt.android.presentation.ui.remind.DialogRemindFragment
 import org.sopt.android.util.base.BindingActivity
 
@@ -11,13 +12,20 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         super.onCreate(savedInstanceState)
         initLayout()
     }
+
     private fun initLayout() {
         binding.btn1.setOnClickListener {
             showDialogFragment()
         }
+
+        binding.btn2.setOnClickListener {
+            navigateToRecord()
+        }
+
         binding.tvHomeName.text = getUserName() + "님,"
     }
-    private fun showDialogFragment(){
+
+    private fun showDialogFragment() {
         val dialogRemindFragment = DialogRemindFragment(
             text = "Sample Text",
             image = "Sample Image"
@@ -25,5 +33,11 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         dialogRemindFragment.show(supportFragmentManager, "DialogFragment")
     }
 
-    private fun getUserName() : String = applicationContext.getSharedPreferences("name", MODE_PRIVATE).getString("name", "").orEmpty()
+    private fun getUserName(): String =
+        applicationContext.getSharedPreferences("name", MODE_PRIVATE).getString("name", "")
+            .orEmpty()
+
+    private fun navigateToRecord() {
+        startActivity(Intent(this@HomeActivity, RecordActivity::class.java))
+    }
 }
