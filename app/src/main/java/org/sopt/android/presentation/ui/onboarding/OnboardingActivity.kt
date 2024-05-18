@@ -133,7 +133,7 @@ class OnboardingActivity :
                 }
             }
 
-
+            vpOnboarding.isUserInputEnabled = false
         }
     }
 

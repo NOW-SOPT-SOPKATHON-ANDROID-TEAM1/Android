@@ -37,12 +37,9 @@ class OnboardingFragment(private val idx: Int) : Fragment() {
     private val binding get() = _binding!!
 
     private var imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
-            //viewModel.setImageUri(imageUri ?: Uri.EMPTY)
             viewModel.setImageUriByIndex(idx, imageUri?:Uri.EMPTY)
             binding.ivOnboardingImage.load(imageUri)
         }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +50,6 @@ class OnboardingFragment(private val idx: Int) : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListeners()
@@ -61,13 +57,10 @@ class OnboardingFragment(private val idx: Int) : Fragment() {
         binding.tvOnboardingQuestion.text = topText
 
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
 
     private fun addListeners() {
         binding.ivOnboardingImage.setOnClickListener {
