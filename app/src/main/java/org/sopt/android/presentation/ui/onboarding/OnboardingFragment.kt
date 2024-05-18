@@ -14,23 +14,35 @@ import coil.load
 import org.sopt.android.databinding.FragmentOnboardingBinding
 import org.sopt.android.util.base.BindingFragment
 
-class OnboardingFragment : Fragment() {
+class OnboardingFragment(private val idx: Int) : Fragment() {
     private val viewModel by activityViewModels<OnboardingViewModel>()
     private var _binding: FragmentOnboardingBinding? = null
-    private var index: Int = 0
+
+    var topText: String = when(idx) {
+        0 -> "일상 속에서 느꼈던\n작은 행복의 순간을 기록해주세요"
+
+        1 -> "취미 활동을 하며\n가장 즐거웠던 순간을 기록해주세요"
+
+
+        2 -> "당신이 자랑스러웠던\n성취의 순간을 기록해주세요"
+
+
+        3 -> "친구들과의 즐거웠던 추억을 기록해주세요"
+
+
+        4 -> "최근에 가장 재밌게 놀았던\n추억을 기록해주세요"
+        else -> ""
+    }
+
     private val binding get() = _binding!!
 
     private var imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { imageUri: Uri? ->
             //viewModel.setImageUri(imageUri ?: Uri.EMPTY)
-            viewModel.setImageUriByIndex(index, imageUri?:Uri.EMPTY)
+            viewModel.setImageUriByIndex(idx, imageUri?:Uri.EMPTY)
             binding.ivOnboardingImage.load(imageUri)
         }
 
-    fun setIndex(index: Int) {
-        this.index = index
-    }
 
-    fun getIndex(): Int = this.index
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +57,8 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListeners()
+
+        binding.tvOnboardingQuestion.text = topText
 
     }
 
@@ -62,7 +76,7 @@ class OnboardingFragment : Fragment() {
 
         binding.etOnboarding.addTextChangedListener(
             onTextChanged = { text, _, _, _ ->
-                viewModel.setContentByIndex(index = index, content = text.toString())
+                viewModel.setContentByIndex(index = idx, content = text.toString())
             }
         )
     }
