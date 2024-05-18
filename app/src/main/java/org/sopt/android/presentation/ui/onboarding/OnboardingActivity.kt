@@ -1,18 +1,18 @@
 package org.sopt.android.presentation.ui.onboarding
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.sopt.android.R
+import org.sopt.android.data.ContentUriRequestBody
 import org.sopt.android.databinding.ActivityOnboardingBinding
 import org.sopt.android.databinding.CustomTabIndicatorBinding
 import org.sopt.android.util.base.BindingActivity
 
-class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ ActivityOnboardingBinding.inflate(it) }) {
+class OnboardingActivity :
+    BindingActivity<ActivityOnboardingBinding>({ ActivityOnboardingBinding.inflate(it) }) {
     private val viewModel by viewModels<OnboardingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
             val fragment4 = OnboardingFragment(3)
             val fragment5 = OnboardingFragment(4)
 
-            vpOnboarding.adapter =  FragmentVPAdapter(
+            vpOnboarding.adapter = FragmentVPAdapter(
                 fragmentList = listOf(
                     fragment1,
                     fragment2,
@@ -38,9 +38,10 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
                     fragment4,
                     fragment5,
                 ),
-                fragmentActivity = this@OnboardingActivity)
+                fragmentActivity = this@OnboardingActivity
+            )
 
-            vpOnboarding.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            vpOnboarding.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     with(binding) {
@@ -112,9 +113,20 @@ class OnboardingActivity : BindingActivity<ActivityOnboardingBinding>({ Activity
                 if (currentItem < itemCount - 1) {
                     vpOnboarding.currentItem = currentItem + 1
                 }
+                if (currentItem == 4) {
+                    for (i in 0..4) {
+                        viewModel.postRemember(
+                            image = ContentUriRequestBody(
+                                context = this@OnboardingActivity,
+                                uri = viewModel._imageUriList[i]
+                            ).toFormData(),
+                            caption = viewModel._contentList[i]
+                        )
+                    }
+                }
             }
 
-            btnBack.setOnClickListener{
+            btnBack.setOnClickListener {
                 val currentItem = vpOnboarding.currentItem
                 if (currentItem > 0) {
                     vpOnboarding.currentItem = currentItem - 1
