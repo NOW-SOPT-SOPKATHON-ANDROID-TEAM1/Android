@@ -2,9 +2,13 @@ package org.sopt.android.presentation.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import kotlinx.coroutines.flow.onEach
+import org.sopt.android.data.model.response.ResponseRememberDto
 import org.sopt.android.databinding.ActivityHomeBinding
 import org.sopt.android.presentation.common.ViewModelFactory
+import org.sopt.android.presentation.ui.collect.CollectActivity
 import org.sopt.android.presentation.ui.record.RecordActivity
 import org.sopt.android.presentation.ui.remind.DialogRemindFragment
 import org.sopt.android.util.base.BindingActivity
@@ -16,6 +20,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
         super.onCreate(savedInstanceState)
         initLayout()
         initColletBtn()
+        collectData()
     }
 
     private fun initLayout() {
