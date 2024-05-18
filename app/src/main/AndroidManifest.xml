@@ -24,9 +24,9 @@
         <activity
             android:name=".presentation.ui.record.RecordActivity"
             android:exported="false" />
-        <activity
-            android:name=".presentation.ui.home.HomeActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".presentation.ui.home.HomeActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".presentation.ui.onboarding.OnboardingActivity"
             android:exported="false" />
@@ -37,7 +37,7 @@
             android:name=".presentation.ui.splash.SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ui.dummy.DummyActivity"
+            android:name=".presentation.ui.home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
