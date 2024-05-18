@@ -1,19 +1,18 @@
 package org.sopt.android.data.repository
 
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import org.sopt.android.data.model.response.ResponseGetDummyUserListDto
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.sopt.android.data.service.DummyService
-import org.sopt.android.util.view.UiState
 
 class DummyRepository(
     private val dummyService: DummyService
 ) {
-    private val _dummyUsers = MutableStateFlow<UiState<ResponseGetDummyUserListDto>>(UiState.Empty)
-    val dummyUsers get() = _dummyUsers.asStateFlow()
-
-    suspend fun getDummyUsers(page: Int) =
+    suspend fun postArticles(
+        category: RequestBody,
+        file: MultipartBody.Part,
+        content: RequestBody
+    ) =
         runCatching {
-            dummyService.getDummyListUsers(page = page)
+            dummyService.postArticles(category = category, file = file, content = content)
         }
 }

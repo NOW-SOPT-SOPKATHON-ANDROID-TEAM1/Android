@@ -1,6 +1,7 @@
 package org.sopt.android.presentation.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import org.sopt.android.databinding.ActivityHomeBinding
 import org.sopt.android.presentation.ui.remind.DialogRemindFragment
 import org.sopt.android.util.base.BindingActivity
@@ -21,5 +22,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>({ ActivityHomeBinding.
             image = "Sample Image"
         )
         dialogRemindFragment.show(supportFragmentManager, "DialogFragment")
+    }
+
+    private fun getData() {
+        val pref = applicationContext.getSharedPreferences("name", MODE_PRIVATE)
+        val name = pref.getString("name", "")
     }
 }
