@@ -5,11 +5,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class FragmentVPAdapter (
-    private val strings: ArrayList<String>,
+    val fragmentList: List<OnboardingFragment>,
     fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
-        return strings.size // 페이지의 개수
+        return 5 // 페이지의 개수
     }
 
-    override fun createFragment(position: Int): Fragment = OnboardingFragment(position)
+    override fun createFragment(position: Int): Fragment = fragmentList[position]
 }
