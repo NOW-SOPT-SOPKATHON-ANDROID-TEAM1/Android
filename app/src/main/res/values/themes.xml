@@ -9,7 +9,6 @@
 
     <style name="Theme.SOPKATHONANDROIDTEAM1" parent="Base.Theme.SOPKATHONANDROIDTEAM1" />
 
-
     <!-- Splash -->
     <style name="Theme.SOPKATHONANDROIDTEAM1.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>

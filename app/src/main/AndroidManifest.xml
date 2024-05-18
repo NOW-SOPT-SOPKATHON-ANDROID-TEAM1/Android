@@ -27,7 +27,7 @@
             android:name=".presentation.ui.login.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateVisible"
+            android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.ui.onboarding.OnboardingActivity"
