@@ -1,15 +1,20 @@
 package org.sopt.android.presentation.ui.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.flow.onEach
 import org.sopt.android.R
 import org.sopt.android.data.ContentUriRequestBody
 import org.sopt.android.databinding.ActivityOnboardingBinding
 import org.sopt.android.databinding.CustomTabIndicatorBinding
+import org.sopt.android.presentation.ui.home.HomeActivity
 import org.sopt.android.util.base.BindingActivity
+import org.sopt.android.util.view.UiState
 
 class OnboardingActivity :
     BindingActivity<ActivityOnboardingBinding>({ ActivityOnboardingBinding.inflate(it) }) {
@@ -20,6 +25,7 @@ class OnboardingActivity :
         initVPAdapter()
         initTapLayout()
         initView()
+        collectData()
     }
 
     private fun initVPAdapter() {
@@ -134,6 +140,23 @@ class OnboardingActivity :
             }
 
             vpOnboarding.isUserInputEnabled = false
+        }
+    }
+
+    private fun collectData() {
+        viewModel.postRememberState.flowWithLifecycle(lifecycle)
+            .onEach { uiState ->
+                when (uiState) {
+                    is UiState.Success -> navigateToHome()
+                    else -> Unit
+                }
+            }
+    }
+
+    private fun navigateToHome() {
+        Intent(this@OnboardingActivity, HomeActivity::class.java).run {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(this)
         }
     }
 
